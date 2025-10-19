@@ -23,15 +23,15 @@ public class DefaultApplication implements Application {
 
     @Override
     public Map<String, HttpHandler> getRoutes() {
-        // create business services
+        // business services
         UserService userService = new UserService();
         AuthService authService = new AuthService(userService);
 
-        // create handlers (HttpHandler implementations)
+        // handlers (HttpHandler implementations)
         AuthHandler authHandler = new AuthHandler(authService);
         UserHandler userHandler = new UserHandler(userService);
 
-        // build routing map (only user/auth for now)
+        // routing map
         Map<String, HttpHandler> routes = new HashMap<>();
         routes.put("/auth", authHandler);
         routes.put("/users", userHandler);

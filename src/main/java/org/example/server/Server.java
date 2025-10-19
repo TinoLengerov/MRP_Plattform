@@ -27,27 +27,6 @@ public class Server {
     }
 
     /**
-     * Starts the HTTP server and registers the main handler.
-
-    public void start(int port) throws IOException {
-        // Services
-        UserService userService = new UserService();
-        AuthService authService = new AuthService(userService);
-
-        // Handlers (implement HttpHandler)
-        AuthHandler authHandler = new AuthHandler(authService);
-        UserHandler userHandler = new UserHandler(userService);
-
-        httpServer = HttpServer.create(new InetSocketAddress(port), 0);
-        // register contexts/handlers here
-        httpServer.createContext("/auth", authHandler);
-        httpServer.createContext("/users", userHandler);
-        httpServer.setExecutor(null);
-        httpServer.start();
-        System.out.println("Server started on port " + port);
-    }*/
-
-    /**
      * Starts the HTTP server using the routes defined in the Application.
      *
      * @throws IOException If an I/O error occurs.
@@ -76,7 +55,7 @@ public class Server {
     }
 
     /**
-     * Stops the HTTP server gracefully.
+     * Stops the HTTP server.
      */
     public void stop() {
         if (this.httpServer != null) {

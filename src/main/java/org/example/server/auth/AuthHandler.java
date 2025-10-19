@@ -55,7 +55,6 @@ public class AuthHandler implements HttpHandler {
                 return;
             }
 
-            // unknown route
             sendJson(exchange, 404, Map.of("error", "Not found"));
         } catch (IllegalArgumentException e) {
             sendJson(exchange, 400, Map.of("error", e.getMessage()));

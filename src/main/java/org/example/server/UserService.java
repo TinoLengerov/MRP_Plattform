@@ -51,7 +51,7 @@ public class UserService {
             throw new IllegalArgumentException("User not found");
         }
 
-        // In production, use proper password hashing (bcrypt)
+        // not hashed
         if (!user.getPassword().equals(password)) {
             throw new IllegalArgumentException("Invalid password");
         }
